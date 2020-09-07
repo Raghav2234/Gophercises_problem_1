@@ -11,7 +11,14 @@ func quiz(records [][]string, correct *int, c chan bool) {
 		question, answer := records[i][0], records[i][1]
 		var inputAnswer string
 		fmt.Println("Question no", i+1, " ", question)
-		fmt.Scanln(&inputAnswer)
+		for {
+			fmt.Scanln(&inputAnswer)
+			if inputAnswer == "" {
+				fmt.Println("Please provide some answer ")
+				continue
+			}
+			break
+		}
 		if inputAnswer == answer {
 			(*correct)++
 		}
