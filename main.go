@@ -13,6 +13,7 @@ func main() {
 	// Setting Flags
 	fileName := flag.String("file", "problem1.csv", "name of the file")
 	timeL := flag.Int("timeLimit", 30, "an int")
+	shuffleRecord := flag.Bool("shuffle", false, "option to shuffle")
 	flag.Parse()
 
 	//I/O operations
@@ -28,21 +29,23 @@ func main() {
 		os.Exit(1)
 	}
 	var quizType string
-
-	fmt.Println("Press 1 to randomize the questions and start or Press Enter to Start the quiz")
-
-	for {
-		fmt.Scanln(&quizType)
-		if quizType == "1" {
-			shuffle(records) //Function to shuffle quiz order
-			break
-		} else if quizType == "" {
-			break
-		} else {
-			fmt.Println("Please enter correct input ")
-			continue
-		}
+	if *shuffleRecord {
+		shuffle(records)
 	}
+	fmt.Println("Press Enter to Start the quiz")
+	fmt.Scanln(&quizType)
+	// for {
+	// 	fmt.Scanln(&quizType)
+	// 	if quizType == "1" {
+	// 		shuffle(records) //Function to shuffle quiz order
+	// 		break
+	// 	} else if quizType == "" {
+	// 		break
+	// 	} else {
+	// 		fmt.Println("Please enter correct input ")
+	// 		continue
+	// 	}
+	// }
 
 	c := make(chan bool)
 
