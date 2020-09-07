@@ -2,6 +2,6 @@
 To run the project, execute following command in go compiler : <br />
 > go run main.go quiz.go -flagName<br />
 Flags : 
-- <strong>timeLimit</strong> is used to specify time limit of quiz(in seconds)
-- <strong>file</strong> is used if a user wants to specify any another csv file 
-- <strong>shuffle</strong> is used to randomize the quiz order
+- <strong>timeLimit</strong> : to specify time limit of quiz(in seconds)
+- <strong>file</strong>  : if a user wants to use any other csv file 
+- <strong>shuffle</strong> : to randomize the quiz order
